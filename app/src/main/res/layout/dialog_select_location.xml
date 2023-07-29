@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/checkboxContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bgbg">
+
+        <TextView
+            android:id="@+id/locationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/cbAngeles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Angeles City" />
+    <CheckBox
+        android:id="@+id/cbAntipolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Antipolo" />
+    <CheckBox
+        android:id="@+id/cbCabanatuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cabanatuan" />
+        <CheckBox
+            android:id="@+id/cbBatangas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Batangas City" />
+    <CheckBox
+        android:id="@+id/cbCaloocan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Caloocan" />
+    <CheckBox
+        android:id="@+id/cbCavite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cavite City" />
+    <CheckBox
+        android:id="@+id/cbMakati"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Makati City" />
+    <CheckBox
+        android:id="@+id/cbMandaluyong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mandaluyong" />
+    <CheckBox
+        android:id="@+id/cbManila"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manila" />
+    <CheckBox
+        android:id="@+id/cbMarikina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marikina City" />
+    <CheckBox
+        android:id="@+id/cbPasay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pasay"/>
+    <CheckBox
+        android:id="@+id/cbPasig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pasig" />
+
+    <CheckBox
+        android:id="@+id/cbQuezon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quezon City" />
+    <CheckBox
+        android:id="@+id/cbRizal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rizal" />
+    <CheckBox
+        android:id="@+id/cbSan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="San Juan" />
+    <CheckBox
+        android:id="@+id/cbPablo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="San Pablo" />
+    <CheckBox
+        android:id="@+id/cbSanta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Santa Rosa" />
+    <CheckBox
+        android:id="@+id/cbTaguig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Taguig" />
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/checkboxContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/bgbg">
+
+        <CheckBox
+            android:id="@+id/cbAsianCare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ASIANCARE HEALTH SYSTEMS, INC." />
+
+        <CheckBox
+            android:id="@+id/cbCoco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COCOLIFE" />
+
+        <CheckBox
+            android:id="@+id/cbCoop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COOPERATIVE HEALTH MANAGEMENT FEDERATION" />
+
+        <CheckBox
+            android:id="@+id/cbDynamic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DYNAMIC CARE CORPORATION" />
+
+        <CheckBox
+            android:id="@+id/cbEast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EASTWEST HEALTHCARE INC." />
+
+        <CheckBox
+            android:id="@+id/cbHealth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HEALTH PLAN PHILIPPINES, INC. (HPPI)" />
+
+        <CheckBox
+            android:id="@+id/cbInsular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INSULAR HEALTH CARE, INC. (FORMERLY ICARE)" />
+
+        <CheckBox
+            android:id="@+id/cbMaxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAXICARE" />
+
+        <CheckBox
+            android:id="@+id/cbMedi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MEDICARD" />
+
+        <CheckBox
+            android:id="@+id/cbPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MEDICARE PLUS INC." />
+
+        <CheckBox
+            android:id="@+id/cbMedo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MEDOCARE HEALTH SYSTEMS, INC." />
+
+        <CheckBox
+            android:id="@+id/cbMetro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="METROCARE HEALTHCARE SYSTEMS, INC" />
+
+        <CheckBox
+            android:id="@+id/cbOptimum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPTIMUM MEDICAL AND HEALTHCARE SERVICES, INC." />
+
+        <CheckBox
+            android:id="@+id/cbPacific"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PACIFIC CROSS HEALTH CARE, INC" />
+
+        <CheckBox
+            android:id="@+id/cbPhil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PHILCARE PHILHEALTH CARE, INC." />
+
+        <CheckBox
+            android:id="@+id/cbCASH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CASH" />
+
+        <CheckBox
+            android:id="@+id/cbGCASH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GCASH" />
+
+        <CheckBox
+            android:id="@+id/cbBANK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BANK" />
+        <!-- Add more checkboxes for other payment methods... -->
+
+        </LinearLayout>
+
+</ScrollView>

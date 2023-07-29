@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicFinder</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+  <style>
+    body {
+      background-color: #B3E5FC;
+      border-radius: 10px;
+    }
+
+    .container {
+      margin-top: 5rem;
+    }
+
+    .card {
+      border: none;
+      border-radius: 10px;
+      background-color: #FFF;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .image img {
+      border-radius: 50%;
+    }
+
+    .stats {
+      background: #B3E5FC !important;
+      color: #000000 !important;
+    }
+
+    .articles {
+      font-size: 15px;
+      color: #000000;
+    }
+
+    .number1 {
+      font-weight: 500;
+    }
+
+    .button {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .button button {
+      width: 100%;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="medicsContainer"><br><br><br><br><br><br><p align="center">SEARCHING AVAILABLE DOCTORS...</p></div>
+
+  <!-- Firebase JavaScript SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script type="module">
+    // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDf30mQzSpS9yeD2kLyN2yVlQBxtyCnDtc",
+    authDomain: "medicfinder-e85ee.firebaseapp.com",
+    databaseURL: "https://medicfinder-e85ee-default-rtdb.firebaseio.com",
+    projectId: "medicfinder-e85ee",
+    storageBucket: "medicfinder-e85ee.appspot.com",
+    messagingSenderId: "1038433587574",
+    appId: "1:1038433587574:web:4fa1a6dee53de0c9fe2a57",
+    measurementId: "G-64BTSR357N"
+  };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+ // Retrieve data from Firebase
+var medicsRef = firebase.database().ref('medics');
+medicsRef.on('value', function(snapshot) {
+  var medicsData = snapshot.val();
+  var medicsContainer = document.getElementById('medicsContainer');
+
+  medicsContainer.innerHTML = ''; // Clear previous data
+
+  var currentHour = new Date().getHours(); // Get the current hour
+
+  for (var medicKey in medicsData) {
+    var medic = medicsData[medicKey];
+    var fullname = medic.fullname;
+    var medicalPersonnelType = medic.medicalPersonnelType;
+    var email = medic.email;
+    var phone = medic.phone;
+    var timeFrom = medic.fromTime;
+    var timeTo = medic.toTime;
+    var status = medic.status;
+    var image = "https://cdn-icons-png.flaticon.com/512/3774/3774293.png";
+
+    var fromHour = parseInt(timeFrom.substr(0, 2)); // Extract the hours from timeFrom
+    var toHour = parseInt(timeTo.substr(0, 2)); // Extract the hours from timeTo
+
+    // Check if the current hour is within the range of fromTime to toTime
+    if (currentHour >= fromHour && currentHour <= toHour) {
+      var card = document.createElement('div');
+      card.classList.add('card', 'col-md-6');
+
+      var cardContent = `
+        <div class="card-body">
+          <div class="d-flex align-items-center">
+            <div class="image">
+              <img src="${image}" class="rounded img-small" width="50">
+            </div>
+            <div class="ml-3 w-100">
+              <h4 class="mb-0 mt-0">${fullname}</h4>
+              <span>${medicalPersonnelType}</span>
+              <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                <div class="d-flex flex-column">
+                  <span class="articles">${email}</span>
+                  <span class="articles">${phone}</span>
+                  <span class="number1">${convertTo24HourFormat(timeFrom)} to ${convertTo24HourFormat(timeTo)}</span>
+                </div>
+              </div>
+              <h4 align="center" class="mb-0 mt-0 text-primary">${status}</h4>
+              <div class="button mt-2 d-flex flex-row align-items-center">
+                <a class="btn btn-sm btn-outline-primary w-100" onclick="SaveHistory(${fullname.toUpperCase()})" href="tel:${phone}">CALL</a>
+                <a class="btn btn-sm btn-primary w-100 ml-2" href="mailto:${email}">EMAIL</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      card.innerHTML = cardContent;
+      medicsContainer.appendChild(card);
+    }
+  }
+});
+
+
+
+
+function SaveHistory(name) {
+  var currentDate = new Date();
+  var formattedDate = currentDate.toLocaleString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true
+  });
+
+  localStorage.setItem(name, formattedDate);
+}
+
+
+
+    function convertTo24HourFormat(time) {
+      var hours = parseInt(time.substr(0, 2));
+      var minutes = parseInt(time.substr(3, 2));
+      var period = time.substr(6, 2);
+
+      if (period === "PM" && hours !== 12) {
+        hours += 12;
+      } else if (period === "AM" && hours === 12) {
+        hours = 0;
+      }
+
+      var formattedTime = ("00" + hours).slice(-2) + ":" + ("00" + minutes).slice(-2);
+      return formattedTime;
+    }
+  </script><br><br><br><br><br><br>
+</body>
+
+</html>
