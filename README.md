@@ -1,4 +1,4 @@
-# DoctorHunter_android
+# DoctorHunter
 This project is created as an educational requirement for the subject Mobile Application of BS Information Technology 3B.
 
 A click away 24/7 access to licensed and professional health care. Dr. Hunter allows the patient to easily locate available doctors in a specific area. The mobile app will allow users to create an account whether they are patients or health practitioners. 
