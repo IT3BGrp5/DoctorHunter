@@ -31,7 +31,7 @@ Click the link to watch https://youtu.be/5WFSc_7Izyk
 * Dellova, Cyrelle
 * Dogoy, Renzo
 
-## Adviser:
+## Professor:
 * Jefferson A. Costales
 
 ## School Name:
