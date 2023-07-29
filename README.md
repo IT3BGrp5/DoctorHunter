@@ -18,7 +18,7 @@ It will provide the patient with different specializations, doctor's information
 
 
 ## Demo Video
-Click the link to watch https://youtu.be/LSdvZBzAbfE
+Click the link to watch https://youtu.be/5WFSc_7Izyk
 
 ## Requirements
 * Android 11 and below
